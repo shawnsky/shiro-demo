@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AnnotationController {
+public class SimpleController {
 
     /**
      * /admin 需要管理员身份
@@ -52,7 +52,7 @@ public class AnnotationController {
             return "unauthorized";
         }
     }
-    
+
     @RequestMapping("/logout")
     public String logout(){
         SecurityUtils.getSubject().logout();
