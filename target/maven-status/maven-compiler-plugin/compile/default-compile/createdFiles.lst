@@ -4,6 +4,7 @@ dao\UserDao.class
 realm\UserRealm.class
 dao\PermissionDaoImpl.class
 credentials\RetryLimitHashedCredentialsMatcher.class
+filter\Class1Filter.class
 dao\UserDaoImpl$1.class
 controller\SimpleController.class
 service\UserServiceImpl.class
