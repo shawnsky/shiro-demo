@@ -3,9 +3,9 @@ service\UserService.class
 dao\UserDao.class
 realm\UserRealm.class
 dao\PermissionDaoImpl.class
-controller\AnnotationController.class
 credentials\RetryLimitHashedCredentialsMatcher.class
 dao\UserDaoImpl$1.class
+controller\SimpleController.class
 service\UserServiceImpl.class
 dao\UserDaoImpl.class
 dao\RoleDaoImpl.class

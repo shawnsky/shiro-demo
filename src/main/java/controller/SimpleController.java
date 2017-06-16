@@ -23,11 +23,6 @@ public class SimpleController {
      *
      */
 
-    @RequiresRoles("admin")
-    @RequestMapping("/admin")
-    public String admin() {
-        return "success";
-    }
 
 
 
@@ -53,17 +48,16 @@ public class SimpleController {
         }
     }
 
-    @RequestMapping("/logout")
-    public String logout(){
-        SecurityUtils.getSubject().logout();
-        return "redirect:index.jsp";
-    }
+//    @RequestMapping("/logout")
+//    public String logout(){
+//        SecurityUtils.getSubject().logout();
+//        return "redirect:index.jsp";
+//    }
 
 
-    @RequiresPermissions("user:create")
     @RequestMapping("/create")
     public String create(){
-        return null;
+        return "create";
     }
 
 }

@@ -14,9 +14,9 @@ E:\IDEAdir\shiro-demo\src\main\java\exception\DefaultExceptionHandler.java
 E:\IDEAdir\shiro-demo\src\main\java\dao\RoleDao.java
 E:\IDEAdir\shiro-demo\src\main\java\dao\PermissionDaoImpl.java
 E:\IDEAdir\shiro-demo\src\main\java\dao\UserDao.java
+E:\IDEAdir\shiro-demo\src\main\java\controller\SimpleController.java
 E:\IDEAdir\shiro-demo\src\main\java\dao\UserDaoImpl.java
 E:\IDEAdir\shiro-demo\src\main\java\entity\RolePermssion.java
 E:\IDEAdir\shiro-demo\src\main\java\realm\UserRealm.java
-E:\IDEAdir\shiro-demo\src\main\java\controller\AnnotationController.java
 E:\IDEAdir\shiro-demo\src\main\java\service\RoleService.java
 E:\IDEAdir\shiro-demo\src\main\java\service\UserServiceImpl.java
