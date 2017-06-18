@@ -5,13 +5,15 @@
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/login" method="post">
+<form action="" method="post">
     用户名：<input type="text" name="username"><br/>
     密码：<input type="password" name="password"><br/>
     <input type="hidden" name="rememberMe"
            value="true" />
     <input type="submit" value="登录">
 </form>
+
+<strong style="color: red">${error}</strong>
 
 </body>
 </html>

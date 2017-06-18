@@ -2,15 +2,15 @@ package controller;
 
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class SimpleController {
@@ -26,26 +26,41 @@ public class SimpleController {
 
 
 
-    @RequestMapping("/login")
-    public String login(String username, String password){
-        AuthenticationToken token = new UsernamePasswordToken(username,password);
+//    @RequestMapping("/login")
+//    public String login(String username, String password){
+//        AuthenticationToken token = new UsernamePasswordToken(username,password);
+//
+//        try{
+//            SecurityUtils.getSubject().login(token);
+//        }catch (UnknownAccountException e){
+//            return "exist";
+//        }catch (AuthenticationException e1){
+//            System.out.println(e1.getMessage());
+//        }
+//
+//        if (SecurityUtils.getSubject().isAuthenticated()){
+//            System.out.println("success");
+//            return "success";
+//        }
+//        else {
+//            System.out.println("failed");
+//            return "unauthorized";
+//        }
+//    }
 
-        try{
-            SecurityUtils.getSubject().login(token);
-        }catch (UnknownAccountException e){
-            return "exist";
-        }catch (AuthenticationException e1){
-            System.out.println(e1.getMessage());
+    @RequestMapping(value = "/login")
+    public String showLoginForm(HttpServletRequest req, Model model) {
+        String exceptionClassName = (String)req.getAttribute("shiroLoginFailure");
+        String error = null;
+        if(UnknownAccountException.class.getName().equals(exceptionClassName)) {
+            error = "用户名/密码错误";
+        } else if(IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
+            error = "用户名/密码错误";
+        } else if(exceptionClassName != null) {
+            error = "其他错误：" + exceptionClassName;
         }
-
-        if (SecurityUtils.getSubject().isAuthenticated()){
-            System.out.println("success");
-            return "success";
-        }
-        else {
-            System.out.println("failed");
-            return "unauthorized";
-        }
+        model.addAttribute("error", error);
+        return "login";
     }
 
 //    @RequestMapping("/logout")
